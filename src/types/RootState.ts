@@ -1,6 +1,4 @@
 /* eslint-disable simple-import-sort/sort */
-import { BodyInsuranceState } from 'app/containers/BIIPage/redux/types';
-import { TPIState } from 'app/containers/TPIPage/redux/types';
 import { AuthState } from 'auth/types';
 import { RouterState } from 'connected-react-router';
 import { SettingsState } from 'settings/types';
@@ -17,8 +15,6 @@ export interface RootState {
   settings?: SettingsState;
   auth?: AuthState;
   theme?: ThemeState;
-  tpi?: TPIState;
-  bodyInsurance?: BodyInsuranceState;
   homePage?: HomePageState;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }

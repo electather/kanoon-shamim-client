@@ -7,11 +7,11 @@ import {
 import { translations } from 'locales/i18n';
 import { RouteKeyType } from 'types/data';
 
-import { SessionsPage } from '../Appointments/Loadable';
-import { sessionsRoute } from '../Appointments/routes';
 import { ClientsPage } from '../Clients/Loadable';
 import { clientsRoute } from '../Clients/routes';
 import { HomePage } from '../HomePage/Loadable';
+import { SessionsPage } from '../Session/Loadable';
+import { sessionsRoute } from '../Session/routes';
 import { UsersPage } from '../Users/Loadable';
 import { usersRoute } from '../Users/routes';
 

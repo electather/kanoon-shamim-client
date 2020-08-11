@@ -1,4 +1,4 @@
-import 'antd/es/date-picker/style';
+import 'antd/es/calendar/style';
 
 import generateCalendar from 'antd/es/calendar/generateCalendar';
 import { Dayjs } from 'dayjs';

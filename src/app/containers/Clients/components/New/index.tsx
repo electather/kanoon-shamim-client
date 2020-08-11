@@ -13,16 +13,12 @@ import {
 import React, { useCallback, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
-import { ErrorResponse } from 'clientResponse';
-import {
-  getUploadedFileID,
-  localizeErrorMsg,
-  statusCodeToResultStatus,
-} from 'utils';
+import { ErrorResponse } from 'userResponse';
+import { localizeErrorMsg, statusCodeToResultStatus } from 'utils';
 import { formItemLayout } from 'utils/const';
 import { history } from 'utils/history';
 
-import { createClient, fetchClient, updateClient } from '../../rest';
+import { createClients, fetchClient, updateClient } from '../../rest';
 
 export function NewClientRequest() {
   let { id } = useParams<{ id: string }>();
@@ -70,7 +66,7 @@ export function NewClientRequest() {
             setSuccess(true);
           }
         } else {
-          const created = await createClient(values);
+          const created = await createClients(values);
           if (created) {
             message.success('کاربر با موفقیت ثبت شد!');
             setSuccess(true);

@@ -154,12 +154,14 @@ export function SessionList() {
       </Row>
       <Divider />
       <Calendar
+        fullscreen
         onPanelChange={handlePanelChange}
         dateCellRender={dateCellRender}
         onSelect={onDateSelect}
       />
       <Drawer
-        title={`جلسات ${drawerVisible?.format('MMMM DD')}`}
+        width={600}
+        title={`جلسات ${drawerVisible?.format(' DD MMMM')}`}
         placement="left"
         closable
         onClose={() => setDrawerVisible(undefined)}

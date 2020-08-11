@@ -1,5 +1,4 @@
 import dayjs from 'dayjs';
-import { debounce } from 'debounce';
 import errors from 'locales/errors.json';
 import { ViewType } from 'types/data';
 import { ErrorResponse } from 'userResponse';
@@ -177,15 +176,6 @@ export const statusCodeToResultStatus = (
       return status;
     default:
       return 'error';
-  }
-};
-
-export const onSelectChange = (
-  dataSrc: unknown[] = [],
-  handler: (value: string) => void,
-) => {
-  if (dataSrc.length === 0) {
-    return debounce(handler, 1000);
   }
 };
 
