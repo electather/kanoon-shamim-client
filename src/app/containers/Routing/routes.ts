@@ -8,12 +8,12 @@ import { translations } from 'locales/i18n';
 import { RouteKeyType } from 'types/data';
 
 import { SessionsPage } from '../Appointments/Loadable';
+import { sessionsRoute } from '../Appointments/routes';
+import { ClientsPage } from '../Clients/Loadable';
+import { clientsRoute } from '../Clients/routes';
 import { HomePage } from '../HomePage/Loadable';
-import { TPIPage } from '../TPIPage/Loadable';
-import { tpiRoute } from '../TPIPage/routes';
 import { UsersPage } from '../Users/Loadable';
 import { usersRoute } from '../Users/routes';
-import { vehiclesRoute } from '../VehiclePage/routes';
 
 export enum PublicRoutes {
   LOGIN = '/login',
@@ -36,8 +36,8 @@ export const privateRoutes: RouteKeyType[] = [
     key: 'clients',
     label: translations.pages.clients.title(),
     Icon: TeamOutlined,
-    component: TPIPage,
-    children: tpiRoute,
+    component: ClientsPage,
+    children: clientsRoute,
     exact: false,
   },
   {
@@ -46,7 +46,7 @@ export const privateRoutes: RouteKeyType[] = [
     Icon: BookOutlined,
     component: SessionsPage,
     exact: false,
-    children: vehiclesRoute,
+    children: sessionsRoute,
   },
   {
     key: 'users',

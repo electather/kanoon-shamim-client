@@ -4,7 +4,7 @@
 
 import { lazyLoad } from 'utils/loadable';
 
-export const TPIPage = lazyLoad(
+export const ClientInfoPage = lazyLoad(
   () => import('./index'),
-  module => module.TPI,
+  module => module.ClientInfo,
 );

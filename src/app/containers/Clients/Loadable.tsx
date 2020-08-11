@@ -4,7 +4,7 @@
 
 import { lazyLoad } from 'utils/loadable';
 
-export const VehiclePage = lazyLoad(
+export const ClientsPage = lazyLoad(
   () => import('./index'),
-  module => module.Vehicle,
+  module => module.Clients,
 );

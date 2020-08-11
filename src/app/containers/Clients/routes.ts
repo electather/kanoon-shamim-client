@@ -1,31 +1,31 @@
 import { RouteKeyType } from 'types/data';
 
-import { UserInfoPage } from './components/Info/Loadable';
-import { UsersPage } from './components/List/Loadable';
-import { NewUserPage } from './components/New/Loadable';
+import { ClientInfoPage } from './components/Info/Loadable';
+import { ClientsPage } from './components/List/Loadable';
+import { NewClientPage } from './components/New/Loadable';
 
-export const usersRoute: RouteKeyType[] = [
+export const clientsRoute: RouteKeyType[] = [
   {
     key: 'list',
     label: 'کاربران',
-    component: UsersPage,
+    component: ClientsPage,
   },
   {
     key: 'new',
     label: 'ثبت کاربر جدید',
-    component: NewUserPage,
+    component: NewClientPage,
   },
   {
     key: 'edit/:id',
     label: 'ویرایش کاربر',
-    component: NewUserPage,
+    component: NewClientPage,
     exact: false,
     hideInSideBar: true,
   },
   {
     key: 'info/:id',
     label: 'اطلاعات کاربر',
-    component: UserInfoPage,
+    component: ClientInfoPage,
     exact: false,
     hideInSideBar: true,
   },

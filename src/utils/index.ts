@@ -80,12 +80,12 @@ export function formatDate(date?: Date, dateFormat = 'D MMMM YYYY'): string {
 
 export function formatAccess(access?: string): string {
   switch (access) {
-    case 'BIME_GOZAR':
-      return 'بیمه گذار';
+    case 'SECRETARY':
+      return 'منشی';
+    case 'DOCTOR':
+      return 'دکتر';
     case 'ADMIN':
-      return 'مدیریت';
-    case 'KARSHENAS':
-      return 'کارشناس';
+      return 'مدیر';
     default:
       return 'خطا';
   }

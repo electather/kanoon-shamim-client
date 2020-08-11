@@ -57,7 +57,6 @@ export function UsersList() {
       setQuery({
         page: pagination.current || 1,
         take: pagination.pageSize || 10,
-        melliCode: filters.melliCode?.[0].toString(),
         order: (sorter as any)?.order === 'ascend' ? 'ASC' : 'DESC',
         phone: filters.phone?.[0].toString(),
       });
@@ -104,14 +103,6 @@ export function UsersList() {
         scroll={{ x: 700 }}
       >
         <Table.Column
-          title={t(table.headers.avatar())}
-          dataIndex="avatar"
-          width="5%"
-          render={(_text, record: UserDataMinimal) => (
-            <Avatar size="large" src={record.avatar?.url} />
-          )}
-        />
-        <Table.Column
           title={t(table.headers.fullName())}
           dataIndex="fullName"
           sorter={true}
@@ -125,11 +116,6 @@ export function UsersList() {
               )}
             </span>
           )}
-        />
-        <Table.Column
-          title={t(table.headers.melliCode())}
-          dataIndex="melliCode"
-          {...searchProps}
         />
         <Table.Column
           title="شماره تماس"

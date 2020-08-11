@@ -1,37 +1,26 @@
-import { CheckCircleOutlined, InboxOutlined } from '@ant-design/icons';
+import { CheckCircleOutlined } from '@ant-design/icons';
 import {
   Button,
   Divider,
   Form,
-  Input,
   InputNumber,
   message,
   Result,
   Select,
   Skeleton,
   Typography,
-  Upload,
 } from 'antd';
 import DatePicker from 'app/components/uiElements/DatePicker';
 import { customSelectRenderer } from 'app/components/utils/CustomSelectRenderer';
 import dayjs from 'dayjs';
 import { debounce } from 'debounce';
-import { translations } from 'locales/i18n';
 import React, { useCallback, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+import { ErrorResponse, Paginated, UserDataMinimal } from 'userResponse';
 import {
-  ErrorResponse,
-  Paginated,
-  UserDataMinimal,
-  VehicleResponse,
-} from 'userResponse';
-import {
-  getBearerToken,
   getUploadedFileID,
   localizeErrorMsg,
-  normFile,
   statusCodeToResultStatus,
 } from 'utils';
 import { formItemLayout } from 'utils/const';

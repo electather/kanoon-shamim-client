@@ -13,7 +13,7 @@ import {
 import React, { useCallback, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
-import { ErrorResponse } from 'userResponse';
+import { ErrorResponse } from 'clientResponse';
 import {
   getUploadedFileID,
   localizeErrorMsg,
@@ -22,9 +22,9 @@ import {
 import { formItemLayout } from 'utils/const';
 import { history } from 'utils/history';
 
-import { createUser, fetchUser, updateUser } from '../../rest';
+import { createClient, fetchClient, updateClient } from '../../rest';
 
-export function NewUserRequest() {
+export function NewClientRequest() {
   let { id } = useParams<{ id: string }>();
   const title = id ? 'ویرایش کاربر' : 'ثبت کاربر جدید';
   const [form] = Form.useForm();
@@ -35,9 +35,9 @@ export function NewUserRequest() {
 
   React.useEffect(() => {
     if (id) {
-      const fetchUserData = async (id: string) => {
+      const fetchClientData = async (id: string) => {
         try {
-          const data = await fetchUser(id, { params: { fields: ['info'] } });
+          const data = await fetchClient(id, { params: { fields: ['info'] } });
           form.setFieldsValue({
             firstName: data?.firstName,
             lastName: data?.lastName,
@@ -53,7 +53,7 @@ export function NewUserRequest() {
         }
       };
       setLoading(true);
-      fetchUserData(id);
+      fetchClientData(id);
       setDataLoaded(true);
       setLoading(false);
     }
@@ -64,13 +64,13 @@ export function NewUserRequest() {
       setLoading(true);
       try {
         if (id) {
-          const updated = await updateUser(id, values);
+          const updated = await updateClient(id, values);
           if (updated) {
             message.success('با موفقیت بروز رسانی شد!');
             setSuccess(true);
           }
         } else {
-          const created = await createUser(values);
+          const created = await createClient(values);
           if (created) {
             message.success('کاربر با موفقیت ثبت شد!');
             setSuccess(true);
@@ -93,13 +93,13 @@ export function NewUserRequest() {
           <Button
             type="primary"
             key="new"
-            onClick={() => history.push(`/dashboard/users/info/${id}`)}
+            onClick={() => history.push(`/dashboard/clients/info/${id}`)}
           >
             بازگشت به پروفایل کاربر
           </Button>,
           <Button
             key="list"
-            onClick={() => history.push('/dashboard/users/list')}
+            onClick={() => history.push('/dashboard/clients/list')}
           >
             بازگشت به لیست کاربران
           </Button>,
@@ -123,7 +123,7 @@ export function NewUserRequest() {
             <Button
               type="primary"
               key="new"
-              onClick={() => history.push(`/dashboard/users/info/${id}`)}
+              onClick={() => history.push(`/dashboard/clients/info/${id}`)}
             >
               بازگشت به پروفایل کاربر
             </Button>
@@ -134,7 +134,7 @@ export function NewUserRequest() {
           ),
           <Button
             key="list"
-            onClick={() => history.push('/dashboard/users/list')}
+            onClick={() => history.push('/dashboard/clients/list')}
           >
             بازگشت به لیست کاربران
           </Button>,
@@ -149,7 +149,7 @@ export function NewUserRequest() {
       <Divider />
       <Form
         {...formItemLayout}
-        name="newUser"
+        name="newClient"
         form={form}
         onFinish={onFinish}
         scrollToFirstError
@@ -194,18 +194,18 @@ export function NewUserRequest() {
         </Form.Item>
         {/* <Form.Item
           name="melliCode"
-          label={t(UsersTranslations.melliCode.label())}
+          label={t(ClientsTranslations.melliCode.label())}
           rules={[
             {
               required: true,
-              message: t(UsersTranslations.melliCode.emptyError()),
+              message: t(ClientsTranslations.melliCode.emptyError()),
             },
             {
               validator: (_, value) =>
                 melliCodeValidator(value)
                   ? Promise.resolve()
                   : Promise.reject(
-                      t(UsersTranslations.melliCode.invalidError()),
+                      t(ClientsTranslations.melliCode.invalidError()),
                     ),
             },
           ]}

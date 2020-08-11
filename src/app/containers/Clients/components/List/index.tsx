@@ -7,26 +7,21 @@ import type {
 } from 'antd/lib/table/interface';
 import { getColumnSearchProps } from 'app/components/utils/TableFileter';
 import { selectLoggedInUser } from 'auth/slice';
-import { translations } from 'locales/i18n';
 import React, { useCallback, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Paginated, TPIResponse } from 'userResponse';
-import { formatDate, formatMoney } from 'utils';
+import { Paginated, UserDataMinimal } from 'userResponse';
 import { useDataApi } from 'utils/hooks/useDataApi';
 
-export function InsuranceList() {
-  const { t } = useTranslation();
-  const { table } = translations.pages.thirdPartyInsurance.dataTab;
-  const loggedInUser = useSelector(selectLoggedInUser);
+export function ClientsList() {
+  const loggedInClient = useSelector(selectLoggedInUser);
   const [
     { data: dataList, isLoading, isError },
     refresh,
     setQuery,
-  ] = useDataApi<Paginated<TPIResponse>>(
-    `third-party`,
+  ] = useDataApi<Paginated<UserDataMinimal>>(
+    `clients`,
     {
       data: [],
       meta: { itemCount: 0, page: 1, take: 10, pageCount: 1 },
@@ -39,7 +34,6 @@ export function InsuranceList() {
   );
 
   const searchProps = useMemo(getColumnSearchProps, []);
-
   const handleTableChange = useCallback(
     (
       pagination: TablePaginationConfig,
@@ -49,22 +43,18 @@ export function InsuranceList() {
       setQuery({
         page: pagination.current || 1,
         take: pagination.pageSize || 10,
-        bimeNumber: filters.bimeNumber?.[0].toString(),
         order: (sorter as any)?.order === 'ascend' ? 'ASC' : 'DESC',
+        phone: filters.phone?.[0].toString(),
       });
     },
     [setQuery],
   );
   return (
     <React.Fragment>
-      <Helmet
-        title={t(translations.pages.thirdPartyInsurance.dataTab.title())}
-      />
+      <Helmet title="لیست بیماران" />
       <Row>
         <Col span={24} sm={18}>
-          <Typography.Title level={4}>
-            {t(translations.pages.thirdPartyInsurance.dataTab.title())}
-          </Typography.Title>
+          <Typography.Title level={4}>لیست بیماران</Typography.Title>
         </Col>
         <Col span={24} sm={6} style={{ textAlign: 'left' }}>
           <Button
@@ -92,22 +82,17 @@ export function InsuranceList() {
           total: dataList?.meta?.itemCount,
           showSizeChanger: true,
           hideOnSinglePage: false,
-          showTotal: total => t(table.general.found(), { items: total }),
         }}
-        scroll={{ x: 1000 }}
+        scroll={{ x: 700 }}
       >
         <Table.Column
-          title={t(table.headers.bimeNumber())}
-          dataIndex="bimeNumber"
-          {...searchProps}
-        />
-        <Table.Column
-          title={t(table.headers.Insurer())}
-          dataIndex="insurer"
-          render={(_text, record: TPIResponse) => (
-            <span key={record.insurer?.id}>
-              {record?.insurer?.firstName} {record?.insurer?.lastName}
-              {record.creatorId === loggedInUser?.id && (
+          title="نام"
+          dataIndex="fullName"
+          sorter={true}
+          render={(_text, record: UserDataMinimal) => (
+            <span>
+              {record.firstName} {record.lastName}{' '}
+              {record.creatorId === loggedInClient?.id && (
                 <Tag icon={<CheckCircleOutlined />} color="success">
                   ثبت شده توسط شما
                 </Tag>
@@ -116,35 +101,27 @@ export function InsuranceList() {
           )}
         />
         <Table.Column
-          title={t(table.headers.startDate())}
-          dataIndex="startDate"
-          render={(text, record: TPIResponse) => (
-            <span>{formatDate(record.startDate)}</span>
+          title="شماره تماس"
+          dataIndex="phone"
+          {...searchProps}
+          render={(text, record: UserDataMinimal) => (
+            <a href={`tel:+98${record?.phone}`} dir="ltr">
+              0{record?.phone}
+            </a>
           )}
         />
         <Table.Column
-          title={t(table.headers.endDate())}
-          dataIndex="endDate"
-          sorter={true}
-          render={(text, record: TPIResponse) => (
-            <span>{formatDate(record.endDate)}</span>
-          )}
-        />
-        <Table.Column
-          title={t(table.headers.price())}
-          dataIndex="fullAmount"
-          render={(text, record: TPIResponse) => (
-            <span>{formatMoney(record.fullAmount)}</span>
-          )}
-        />
-        <Table.Column
-          title={t(table.headers.actions())}
-          render={(_text, record: TPIResponse) => (
+          title="عملیات ها"
+          render={(text, record: UserDataMinimal) => (
             <Space size="middle">
-              <Link to={`/dashboard/tpi/info/${record.id}`}>نمایش جزئیات</Link>
-              {(loggedInUser?.role === 'ADMIN' ||
-                record.creatorId === loggedInUser?.id) && (
-                <Link to={`/dashboard/tpi/edit/${record.id}`}>ویرایش بیمه</Link>
+              <Link to={`/dashboard/clients/info/${record.id}`}>
+                نمایش جزئیات
+              </Link>
+              {(loggedInClient?.role === 'ADMIN' ||
+                record.creatorId === loggedInClient?.id) && (
+                <Link to={`/dashboard/clients/edit/${record.id}`}>
+                  ویرایش کاربر
+                </Link>
               )}
             </Space>
           )}

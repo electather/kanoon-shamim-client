@@ -29,14 +29,12 @@ import {
 import { history } from 'utils/history';
 import { useDataApi } from 'utils/hooks/useDataApi';
 
-import { deleteUser } from '../../rest';
+import { deleteClient } from '../../rest';
 
-export function UserInfo() {
+export function ClientInfo() {
   let { id } = useParams<{ id: string }>();
-  const { findOne } = translations.pages.users.dataTab;
-  const { t } = useTranslation();
-  const [{ data: selectedUser, isLoading, isError }] = useDataApi<UserData>(
-    `users/${id}`,
+  const [{ data: selectedClient, isLoading, isError }] = useDataApi<UserData>(
+    `clients/${id}`,
     undefined,
     // {
     //   fields: [
@@ -51,15 +49,15 @@ export function UserInfo() {
     //   ],
     // },
   );
-  const user = useSelector(selectLoggedInUser);
+  const client = useSelector(selectLoggedInUser);
   const location: any = useSelector(selectRouter);
 
-  const removable = selectedUser?.vehicles && selectedUser.vehicles.length < 1;
+  const removable = true;
   const editable =
-    (selectedUser?.creator && selectedUser.creator.id === user?.id) ||
-    user?.role === 'ADMIN';
-  const deleteUserRequest = useCallback(async (id: string) => {
-    const data = await deleteUser(id);
+    (selectedClient?.creator && selectedClient.creator.id === client?.id) ||
+    client?.role === 'ADMIN';
+  const deleteClientRequest = useCallback(async (id: string) => {
+    const data = await deleteClient(id);
     if (data) {
       message.success('با موفقیت از سیستم پاک شد');
       history.goBack();
@@ -73,7 +71,7 @@ export function UserInfo() {
         shape="round"
         icon={<EditOutlined />}
         disabled={!editable}
-        onClick={() => history.push(`/dashboard/users/edit/${id}`)}
+        onClick={() => history.push(`/dashboard/clients/edit/${id}`)}
         style={{ margin: '0 10px' }}
       >
         ویرایش
@@ -81,7 +79,7 @@ export function UserInfo() {
       <Popconfirm
         placement="bottomLeft"
         title="آیا مطمئن هستید؟ این عمل غیر قابل بازگشت می باشد."
-        onConfirm={() => deleteUserRequest(id)}
+        onConfirm={() => deleteClientRequest(id)}
         okText="بله"
         cancelText="خیر"
       >
@@ -121,8 +119,8 @@ export function UserInfo() {
     <React.Fragment>
       <Helmet
         title={
-          selectedUser
-            ? `${selectedUser?.firstName} ${selectedUser?.lastName}`
+          selectedClient
+            ? `${selectedClient?.firstName} ${selectedClient?.lastName}`
             : 'اطلاعات کاربر'
         }
       />
@@ -140,7 +138,7 @@ export function UserInfo() {
           tab={
             <span>
               <UserOutlined />
-              اطلاعات {selectedUser?.firstName} {selectedUser?.lastName}
+              اطلاعات {selectedClient?.firstName} {selectedClient?.lastName}
             </span>
           }
           key="info"
@@ -148,26 +146,23 @@ export function UserInfo() {
           <Typography.Title level={4}>اطلاعات کاربر</Typography.Title>
           <Divider />
           <Descriptions bordered column={4}>
-            <Descriptions.Item label={t(findOne.elements.avatar())} span={1}>
-              <Avatar src={selectedUser?.avatar?.url} />
-            </Descriptions.Item>
             <Descriptions.Item label="ایجاد شده توسط" span={2}>
-              {selectedUser?.creator?.firstName}{' '}
-              {selectedUser?.creator?.lastName}
+              {selectedClient?.creator?.firstName}{' '}
+              {selectedClient?.creator?.lastName}
             </Descriptions.Item>
             <Descriptions.Item label="تاریخ ایجاد" span={1}>
-              {formatDate(selectedUser?.createdAt)}
+              {formatDate(selectedClient?.createdAt)}
             </Descriptions.Item>
 
-            <Descriptions.Item label={t(findOne.elements.firstName())} span={3}>
-              {selectedUser?.firstName} {selectedUser?.lastName}
+            <Descriptions.Item label="نام" span={3}>
+              {selectedClient?.firstName} {selectedClient?.lastName}
             </Descriptions.Item>
-            <Descriptions.Item label={t(findOne.elements.role())} span={2}>
-              {formatAccess(selectedUser?.role)}
+            <Descriptions.Item label="سطح دسترسی" span={2}>
+              {formatAccess(selectedClient?.role)}
             </Descriptions.Item>
-            <Descriptions.Item label={t(findOne.elements.phone())} span={2}>
-              <a href={`tel:+98${selectedUser?.phone}`} dir="ltr">
-                0{selectedUser?.phone}
+            <Descriptions.Item label="موبایل" span={2}>
+              <a href={`tel:+98${selectedClient?.phone}`} dir="ltr">
+                0{selectedClient?.phone}
               </a>
             </Descriptions.Item>
           </Descriptions>
