@@ -1,0 +1,445 @@
+{
+  "global": {
+    "siteName": "سیستم مدیریت مشتریان",
+    "footerText": "طراحی شده توسط امید آسترکی",
+    "siteDesc": "توضیحات سایت",
+    "loading": "در حال بارگذاری...",
+    "rials": "ریال"
+  },
+  "errorPages": {
+    "404": {
+      "title": "404",
+      "subTitle": "صفحه مورد نظر یافت نشد!"
+    }
+  },
+  "error": {
+    "unique": {
+      "melliCode": "کد ملی قبلا ثبت شده است!",
+      "phoneNumber": "شماره موبایل قبلا ثبت شده است!",
+      "engineNumber": "شماره موتور قبلا در سیستم ثبت شده است!"
+    },
+    "auth": {
+      "undefined": "لطفا دسترسی اینترنت خود را برسی نمایید",
+      "notFound": "کاربر یافت نشد",
+      "wrongUsernameOrPassword": "لطفا نام کاربری یا کلمه عبور خود را برسی نمایید"
+    }
+  },
+  "authPage": {
+    "shared": {
+      "username": "نام کاربری",
+      "usernameError": "لطفا نام کاربری را وارد نمایید!",
+      "password": "کلمه عبور",
+      "passwordError": "لطفا کلمه عبور را وارد نمایید!",
+      "or": "یا",
+      "loginSuccess": "با موفقیت وارد شدید!"
+    },
+    "login": {
+      "pageTitle": "ورود",
+      "pageDescription": "توضیحات صفحه",
+      "rememberCheckBox": "مرا به یاد بسپار",
+      "signIn": "ورود",
+      "help": "متن راهنما",
+      "facebook": "ورود با فیس بوک",
+      "google": "ورود با گوگل",
+      "auth0": "ورود با  auth0",
+      "forgotPass": "بازیابی پسورد",
+      "createAcc": "ایجاد اکانت جدید"
+    },
+    "forgotPass": {
+      "pageTitle": "بازیابی پسورد",
+      "pageDescription": "توضیحات صفحه",
+      "submitBtn": "بازیابی",
+      "help": "متن راهنما",
+      "login": "اکانت دارید؟ ازا اینجا وارد شوید!"
+    },
+    "register": {
+      "pageTitle": "ایجاد اکانت جدید",
+      "pageDescription": "توضیحات",
+      "firstName": "نام",
+      "firstNameError": "لطفا نام خود را وارد نمایید!",
+      "lastName": "نام خانوادگی",
+      "lastNameError": "لطفا نام خانوادگی خود را وارد نمایید!",
+      "email": "ایمیل",
+      "emailError": "لطفا ایمیل خود را وارد نمایید!",
+      "submitBtn": "ثبت نام",
+      "tos": "قوانین",
+      "help": "پیام راهنما",
+      "login": "اکانت از قبل دارید؟ از اینجا وارد شوید"
+    }
+  },
+  "pages": {
+    "homePage": {
+      "title": "پنل مدیریت"
+    },
+    "bodyInsurance": {
+      "title": "بیمه بدنه",
+      "overViewTab": {
+        "title": "نمای کلی",
+        "submittedInsurances": "بیمه های ثبت شده",
+        "iranInsuranceCases": "بیمه ایران",
+        "kosarInsuranceCases": "بیمه کوثر",
+        "revenue": "درامد در 30 روز گذشته",
+        "iranInsuranceRevenue": "بیمه ایران",
+        "kosarInsuranceRevenue": "بیمه کوثر"
+      },
+      "dataTab": {
+        "title": "بیمه های ثبت شده",
+        "table": {
+          "headers": {
+            "bimeNumber": "شماره بیمه",
+            "Insurer": "بیمه گذار",
+            "startDate": "تاریخ شروع",
+            "endDate": "تاریخ پایان",
+            "price": "ارزش بیمه",
+            "actions": "عملیات ها"
+          },
+          "general": {
+            "found": "{items, plural, =0 {چیزی یافت نشد} =1 {یک عدد یافت شد} other {در مجموع # ایتم یافت شد.}}"
+          }
+        },
+        "findOne": {
+          "title": "جزئیات بیمه",
+          "elements": {
+            "createdAt": "ایجاد شده در",
+            "insurer": "بیمه گذار",
+            "owner": "صاحب خودرو",
+            "address": "آدرس",
+            "engineNumber": "شماره موتور",
+            "chassisNumber": "شماره شاسی",
+            "startDate": "تاریخ شروع",
+            "endDate": "تاریخ پایان",
+            "value": "ارزش بیمه",
+            "isCash": "نحوه پرداخت",
+            "plate": "پلاک"
+          }
+        }
+      },
+      "newTab": {
+        "title": "بیمه جدید",
+        "form": {
+          "bimeNumber": {
+            "label": "شماره بیمه",
+            "emptyError": "لطفا شماره بیمه نامه را وارد نمایید!",
+            "invalidError": "ورودی یک شماره بیمه نامه معتبر نیست!"
+          },
+          "issuer": {
+            "label": "بیمه کننده",
+            "emptyError": "لطفا شرکت بیمه کننده را انتخاب نمایید!"
+          },
+          "startDate": {
+            "label": "تاریخ شروع بیمه",
+            "emptyError": "لطفا تاریخ شروع بیمه را انتخاب نمایید!",
+            "invalidError": "این یک تاریخ معتبر نیست!"
+          },
+          "endDate": {
+            "label": "تاریخ پایان بیمه نامه",
+            "emptyError": "لطفا تاریخ پایان بیمه را انتخاب نمایید!",
+            "invalidError": "این یک تاریخ معتبر نیست!"
+          },
+          "isCash": {
+            "label": "متد پرداخت",
+            "options": {
+              "cash": "نقد",
+              "Installments": "اقساط"
+            },
+            "emptyError": "لطفا یک گزینه را انتخاب نمایید!"
+          },
+          "fullAmount": {
+            "label": "قیمت کل",
+            "emptyError": "لطفا قیمت کل را تعیین کنید!",
+            "invalidError": "ورودی نا معتبر!"
+          },
+          "insurerId": {
+            "label": "بیمه گذار",
+            "emptyError": "لطفا بیمه گذار را انتخاب کنید!",
+            "invalidError": "مقدار وارد یک بیمه گذار معتبر نیست"
+          },
+          "vehicleId": {
+            "label": "وسیله نقلیه",
+            "emptyError": "لطفا وسیله نقلیه را انتخاب کنید!",
+            "invalidError": "The input is not valid Bime Number!"
+          },
+          "attachment": {
+            "label": "پیوست",
+            "guide": "لطفا فایل را به این ناحیه برای اپلود بکشید",
+            "help": "فقط آخرین فایل آپلودی انتخاب میشود",
+            "emptyError": "لطفا فایل لازم را اپلود نمایید"
+          },
+          "submit": "ثبت بیمه"
+        }
+      }
+    },
+    "thirdPartyInsurance": {
+      "title": "بیمه شخص ثالث",
+      "overViewTab": {
+        "title": "نمای کلی",
+        "submittedInsurances": "بیمه های ثبت شده",
+        "iranInsuranceCases": "بیمه ایران",
+        "kosarInsuranceCases": "بیمه کوثر",
+        "revenue": "درامد در 30 روز گذشته",
+        "iranInsuranceRevenue": "بیمه ایران",
+        "kosarInsuranceRevenue": "بیمه کوثر"
+      },
+      "dataTab": {
+        "title": "بیمه های ثبت شده",
+        "table": {
+          "headers": {
+            "bimeNumber": "شماره بیمه",
+            "Insurer": "بیمه گذار",
+            "startDate": "تاریخ شروع",
+            "endDate": "تاریخ پایان",
+            "price": "ارزش بیمه",
+            "actions": "عملیات ها"
+          },
+          "general": {
+            "found": "{items, plural, =0 {چیزی یافت نشد} =1 {یک عدد یافت شد} other {در مجموع # ایتم یافت شد.}}"
+          }
+        },
+        "findOne": {
+          "title": "جزئیات بیمه",
+          "elements": {
+            "createdAt": "ایجاد شده در",
+            "insurer": "بیمه گزار",
+            "owner": "صاحب خودرو",
+            "address": "آدرس",
+            "engineNumber": "شماره موتور",
+            "chassisNumber": "شمار شاسی",
+            "plate": "پلاک",
+            "startDate": "تاریخ شروع",
+            "endDate": "تاریخ پایان",
+            "value": "ارزش",
+            "isCash": "نحوه پرداخت"
+          }
+        }
+      },
+      "newTab": {
+        "title": "بیمه جدید",
+        "form": {
+          "bimeNumber": {
+            "label": "شماره بیمه",
+            "emptyError": "لطفا شماره بیمه نامه را وارد نمایید!",
+            "invalidError": "ورودی یک شماره بیمه نامه معتبر نیست!"
+          },
+          "issuer": {
+            "label": "بیمه کننده",
+            "emptyError": "لطفا شرکت بیمه کننده را انتخاب نمایید!"
+          },
+          "startDate": {
+            "label": "تاریخ شروع بیمه",
+            "emptyError": "لطفا تاریخ شروع بیمه را انتخاب نمایید!",
+            "invalidError": "این یک تاریخ معتبر نیست!"
+          },
+          "endDate": {
+            "label": "تاریخ پایان بیمه نامه",
+            "emptyError": "لطفا تاریخ پایان بیمه را انتخاب نمایید!",
+            "invalidError": "این یک تاریخ معتبر نیست!"
+          },
+          "isCash": {
+            "label": "متد پرداخت",
+            "options": {
+              "cash": "نقد",
+              "Installments": "اقساط"
+            },
+            "emptyError": "لطفا یک گزینه را انتخاب نمایید!"
+          },
+          "fullAmount": {
+            "label": "قیمت کل",
+            "emptyError": "لطفا قیمت کل را تعیین کنید!",
+            "invalidError": "ورودی نا معتبر!"
+          },
+          "insurerId": {
+            "label": "بیمه گذار",
+            "emptyError": "لطفا بیمه گذار را انتخاب کنید!",
+            "invalidError": "مقدار وارد یک بیمه گذار معتبر نیست"
+          },
+          "vehicleId": {
+            "label": "وسیله نقلیه",
+            "emptyError": "لطفا وسیله نقلیه را انتخاب کنید!",
+            "invalidError": "The input is not valid Bime Number!"
+          },
+          "attachment": {
+            "label": "پیوست",
+            "guide": "لطفا فایل را به این ناحیه برای اپلود بکشید",
+            "help": "فقط آخرین فایل آپلودی انتخاب میشود",
+            "emptyError": "لطفا فایل لازم را اپلود نمایید"
+          },
+          "submit": "ثبت بیمه"
+        }
+      }
+    },
+    "vehicle": {
+      "title": "خودرو ها",
+      "overViewTab": {
+        "title": "نمای کلی",
+        "submittedVehicles": "خودرو های ثبت شده",
+        "revenue": "خودرو های ثبت شده در 30 روز گذشته"
+      },
+      "dataTab": {
+        "title": "خودرو های ثبت شده",
+        "table": {
+          "headers": {
+            "insurer": "بیمه گذار",
+            "owner": "صاحب خودرو",
+            "engineNumber": "شماره موتور",
+            "chassisNumber": "شماره شاسی",
+            "creationDate": "تاریخ ایجاد",
+            "actions": "فعالیت ها"
+          },
+          "general": {
+            "found": "{items, plural, =0 {چیزی یافت نشد} =1 {یک عدد یافت شد} other {در مجموع # ایتم یافت شد.}}"
+          }
+        }
+      },
+      "newTab": {
+        "title": "بیمه جدید",
+        "form": {
+          "insurer": {
+            "label": "بیمه گذار",
+            "emptyError": "لطفا یک بیمه گذار انتخاب نمایید!",
+            "invalidError": "The input is not valid Bime Number!"
+          },
+          "owner": {
+            "label": "صاحب خودرو",
+            "phName": "نام",
+            "phLName": "نام خانوادگی",
+            "emptyError": "این فیلد نمی تواند خالی باشد!",
+            "invalidError": "The input is not valid Bime Number!"
+          },
+          "address": {
+            "label": "آدرس کامل",
+            "emptyError": "این فیلد نمی تواند خالی باشد!",
+            "invalidError": "The input is not valid Bime Number!"
+          },
+          "engineNumber": {
+            "label": "شمار موتور",
+            "emptyError": "این فیلد نمی تواند خالی باشد!",
+            "invalidError": "The input is not valid Bime Number!"
+          },
+          "chassisNumber": {
+            "label": "شماره شاسی",
+            "emptyError": "این فیلد نمی تواند خالی باشد!",
+            "invalidError": "The input is not valid Bime Number!"
+          },
+          "plateNumber": {
+            "label": "شماره پلاک",
+            "firstTwo": "11",
+            "letter": "الف",
+            "lastThree": "111",
+            "irNum": "11",
+            "emptyError": "این فیلد نمی تواند خالی باشد!",
+            "invalidError": "The input is not valid Bime Number!"
+          },
+          "attachment": {
+            "label": "پیوست",
+            "guide": "بر روی این ناحیه کلیک کنید یا فایل ها را برای آپلود بکشید",
+            "help": "فقط آخرین فایل به سرور ارسال می شود.",
+            "emptyError": "لطفا فایل مورد نظر را اپلود نمایید"
+          },
+          "submit": "ثبت خودرو"
+        }
+      }
+    },
+    "users": {
+      "title": "کاربران",
+      "overViewTab": {
+        "title": "نمای کلی",
+        "total": "کابران ثب نام شده",
+        "past30Days": "کاربران قبت شده در 30 روز گذشته"
+      },
+      "dataTab": {
+        "title": "کاربران ثبت شده",
+        "table": {
+          "headers": {
+            "avatar": "تصویر",
+            "fullName": "نام کامل",
+            "role": "نقش",
+            "melliCode": "کد ملی",
+            "actions": "فعالیت ها"
+          },
+          "general": {
+            "found": "{items, plural, =0 {چیزی یافت نشد} =1 {یک عدد یافت شد} other {در مجموع # ایتم یافت شد.}}"
+          }
+        },
+        "findOne": {
+          "title": "جزئیات کاربر",
+          "elements": {
+            "firstName": "نام",
+            "lastName": "نام خانوادگی",
+            "role": "نقش",
+            "phone": "شماره موبایل",
+            "avatar": "تصویر",
+            "melliCode": "کد ملی",
+            "address": "آدرس",
+            "melliCardScanFront": "اسکن کارت ملی - جلو",
+            "melliCardScanBack": "اسکن کارت ملی - پشت",
+            "payrollScan": "اسکن فیش حقوقی"
+          }
+        }
+      },
+      "newTab": {
+        "title": "کاربر جدید",
+        "form": {
+          "fullName": {
+            "label": "نام کامل",
+            "fName": "نام",
+            "lName": "نام خانوادگی",
+            "emptyError": "این فیلد نمی تواند خالی باشد!",
+            "invalidError": "The input is not valid Bime Number!"
+          },
+          "melliCode": {
+            "label": "کد ملی",
+            "emptyError": "این فیلد نمی تواند خالی باشد!",
+            "invalidError": "یک کد ملی معتبر وارد نمایید!"
+          },
+          "phone": {
+            "label": "شماره موبایل",
+            "emptyError": "این فیلد نمی تواند خالی باشد!",
+            "invalidError": "یک شماره موبایل معتبر وارد نمایید!"
+          },
+          "address": {
+            "label": "آدرس",
+            "emptyError": "این فیلد نمی تواند خالی باشد!",
+            "invalidError": "The input is not valid address!"
+          },
+          "melliCardScanFront": {
+            "label": "کارت ملی - جلو",
+            "guide": "بر روی این ناحیه کلیک کنید یا فایل ها را برای آپلود بکشید",
+            "help": "فقط آخرین فایل به سرور ارسال می شود.",
+            "emptyError": "لطفا فایل مورد نظر را اپلود نمایید"
+          },
+          "melliCardScanBack": {
+            "label": "کارت ملی - پشت",
+            "guide": "بر روی این ناحیه کلیک کنید یا فایل ها را برای آپلود بکشید",
+            "help": "فقط آخرین فایل به سرور ارسال می شود.",
+            "emptyError": "لطفا فایل مورد نظر را اپلود نمایید"
+          },
+          "payrollScan": {
+            "label": "فیش حقوقی",
+            "guide": "بر روی این ناحیه کلیک کنید یا فایل ها را برای آپلود بکشید",
+            "help": "فقط آخرین فایل به سرور ارسال می شود.",
+            "emptyError": "لطفا فایل مورد نظر را اپلود نمایید"
+          },
+          "avatar": {
+            "label": "تصویر",
+            "guide": "بر روی این ناحیه کلیک کنید یا فایل ها را برای آپلود بکشید",
+            "help": "فقط آخرین فایل به سرور ارسال می شود.",
+            "emptyError": "لطفا فایل مورد نظر را اپلود نمایید"
+          },
+          "submit": "ثبت نام کاربر"
+        }
+      }
+    }
+  },
+  "topBar": {
+    "userDropDown": {
+      "myProfile": "پروفایل من",
+      "settings": "تنظیمات",
+      "logout": "خروج"
+    },
+    "languages": {
+      "fa": "فارسی",
+      "en": "English",
+      "change": "زبان خود را انتخاب کنید"
+    }
+  }
+}

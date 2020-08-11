@@ -1,0 +1,9 @@
+{
+  "server": "خطا در ارتباط با سرور",
+  "error.unique.melliCode": "کد ملی قبلا ثبت شده است!",
+  "error.unique.phoneNumber": "شماره موبایل قبلا ثبت شده است!",
+  "error.unique.bimeNumber": "بیمه ای قبلا با این شماره ثبت شده است!",
+  "error.unique.engineNumber": "شماره موتور قبلا در سیستم ثبت شده است!",
+  "error.uuidV4": "شناسه ارسالی معتبر نمی باشد!",
+  "error.user_not_found": "کاربر مورد نظر شما یافت نشد!"
+}

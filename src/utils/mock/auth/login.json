@@ -1,0 +1,22 @@
+{
+  "user": {
+    "id": "69081189-d820-4e2c-b1d9-6edb4a176860",
+    "createdAt": "2020-04-28T06:15:24.063Z",
+    "updatedAt": "2020-04-28T06:15:24.352Z",
+    "firstName": "Omid",
+    "lastName": "Astaraki",
+    "role": "ADMIN",
+    "phone": "9123965337",
+    "info": {
+      "id": "2676583e-489d-4d09-a8d9-5f968d35f299",
+      "createdAt": "2020-04-28T06:15:24.352Z",
+      "updatedAt": "2020-04-28T06:15:24.352Z",
+      "melliCode": "0018124097",
+      "address": null
+    }
+  },
+  "token": {
+    "expiresIn": 3600,
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MDgxMTg5LWQ4MjAtNGUyYy1iMWQ5LTZlZGI0YTE3Njg2MCIsImlhdCI6MTU4ODgyMjE1Mn0.Nqu69WUBwsZ1FDnkaCx1zRp_8h4YSipt3dMeZP5CyzQ"
+  }
+}

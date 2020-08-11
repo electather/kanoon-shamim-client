@@ -1,0 +1,32 @@
+{
+  "homepage": [
+    {
+      "name": "Page A",
+      "data": 4000
+    },
+    {
+      "name": "Page B",
+      "data": 3000
+    },
+    {
+      "name": "Page C",
+      "data": 2000
+    },
+    {
+      "name": "Page D",
+      "data": 2780
+    },
+    {
+      "name": "Page E",
+      "data": 1890
+    },
+    {
+      "name": "Page F",
+      "data": 2390
+    },
+    {
+      "name": "Page G",
+      "data": 3490
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "global": {
+    "siteName": "Dashboard Project",
+    "footerText": "Footer Text",
+    "siteDesc": "desc",
+    "loading": "loading...",
+    "rials": "rials"
+  },
+  "errorPages": {
+    "404": {
+      "title": "4😢4",
+      "subTitle": "Page not found."
+    }
+  },
+  "errorMessages": {
+    "global": {},
+    "auth": {
+      "undefined": "check your network connection",
+      "notFound": "User not found",
+      "wrongUsernameOrPassword": "please check your username or password",
+      "serverError": "server Error! please check connection!"
+    },
+    "bii": {
+      "undefined": "check your network connection",
+      "notFound": "insurance not found"
+    },
+    "tpi": {
+      "undefined": "check your network connection",
+      "notFound": "insurance not found"
+    },
+    "users": {
+      "undefined": "check your network connection",
+      "notFound": "insurance not found"
+    },
+    "vehicle": {
+      "undefined": "check your network connection",
+      "notFound": "insurance not found"
+    }
+  },
+  "authPage": {
+    "shared": {
+      "username": "username",
+      "usernameError": "Please input your Username!",
+      "password": "password",
+      "passwordError": "Please input your Password!",
+      "or": "OR",
+      "loginSuccess": "login success"
+    },
+    "login": {
+      "pageTitle": "Login",
+      "pageDescription": "some Page desc",
+      "rememberCheckBox": "remember me",
+      "signIn": "Sign In",
+      "help": "Help text",
+      "facebook": "Login with facebook",
+      "google": "Login with google",
+      "auth0": "Login with auth0",
+      "forgotPass": "restore password",
+      "createAcc": "create a new account"
+    },
+    "forgotPass": {
+      "pageTitle": "Restore Password",
+      "pageDescription": "some Page desc",
+      "submitBtn": "Restore Password",
+      "help": "help message",
+      "login": "have an account? Login here!"
+    },
+    "register": {
+      "pageTitle": "Create a new account",
+      "pageDescription": "some Page desc",
+      "firstName": "first name",
+      "firstNameError": "Please input your first name!",
+      "lastName": "last name",
+      "lastNameError": "Please input your last name!",
+      "email": "EMail",
+      "emailError": "Please input your EMail!",
+      "submitBtn": "Register",
+      "tos": "terms of service",
+      "help": "help message",
+      "login": "have an account? Login here!"
+    }
+  },
+  "pages": {
+    "homePage": {
+      "title": "Dashboard"
+    },
+    "clients": {
+      "title": "Clients"
+    },
+    "sessions": {
+      "title": "Sessions",
+      "subPages": {
+        "list": "list",
+        "new": "Add an appointment",
+        "edit": "Edit an appointment",
+        "info": "Appointment details",
+        "statistics": "Statistics"
+      }
+    },
+    "users": {
+      "title": "Users",
+      "overViewTab": {
+        "title": "OverView",
+        "total": "registered users",
+        "past30Days": "registered users in the past 30 days"
+      },
+      "dataTab": {
+        "title": "Registered Users",
+        "table": {
+          "headers": {
+            "avatar": "avatar",
+            "fullName": "full name",
+            "role": "role",
+            "melliCode": "Melli code",
+            "actions": "actions"
+          },
+          "general": {
+            "found": "{items, plural, =0 {nothing found, please check search criteria} =1 {found ONE Item} other {found # users in total.}}"
+          }
+        },
+        "findOne": {
+          "title": "user details",
+          "elements": {
+            "firstName": "first name",
+            "lastName": "last name",
+            "role": "role",
+            "phone": "phone number",
+            "avatar": "avatar",
+            "melliCode": "Melli code",
+            "address": "address",
+            "melliCardScanFront": "melli card scan front",
+            "melliCardScanBack": "melli card scan back",
+            "payrollScan": "payroll scan"
+          }
+        }
+      },
+      "newTab": {
+        "title": "New User",
+        "form": {
+          "fullName": {
+            "label": "full name",
+            "fName": "first name",
+            "lName": "Last name",
+            "emptyError": "The input is not valid Bime Number!",
+            "invalidError": "The input is not valid Bime Number!"
+          },
+          "melliCode": {
+            "label": "Melli Code",
+            "emptyError": "The input is not valid Bime Number!",
+            "invalidError": "The input is not valid Bime Number!"
+          },
+          "phone": {
+            "label": "phone number",
+            "emptyError": "The input is not valid Bime Number!",
+            "invalidError": "The input is not valid Bime Number!"
+          },
+          "address": {
+            "label": "address",
+            "emptyError": "The input is not valid address!",
+            "invalidError": "The input is not valid address!"
+          },
+          "melliCardScanFront": {
+            "label": "melli card front",
+            "guide": "Click or drag file to this area to upload",
+            "help": "Support for a single or bulk upload",
+            "emptyError": "please upload required files"
+          },
+          "melliCardScanBack": {
+            "label": "melli card back",
+            "guide": "Click or drag file to this area to upload",
+            "help": "Support for a single or bulk upload",
+            "emptyError": "please upload required files"
+          },
+          "payrollScan": {
+            "label": "payroll",
+            "guide": "Click or drag file to this area to upload",
+            "help": "Support for a single or bulk upload",
+            "emptyError": "please upload required files"
+          },
+          "avatar": {
+            "label": "avatar",
+            "guide": "Click or drag file to this area to upload",
+            "help": "Support for a single or bulk upload",
+            "emptyError": "please upload required files"
+          },
+          "submit": "register user"
+        }
+      }
+    }
+  },
+  "topBar": {
+    "userDropDown": {
+      "myProfile": "my profile",
+      "settings": "settings",
+      "logout": "logout"
+    },
+    "languages": {
+      "fa": "فارسی",
+      "en": "English",
+      "change": "change language"
+    }
+  }
+}
