@@ -1,15 +1,5 @@
 import { CheckCircleOutlined } from '@ant-design/icons';
-import {
-  Avatar,
-  Button,
-  Col,
-  Divider,
-  Row,
-  Space,
-  Table,
-  Tag,
-  Typography,
-} from 'antd';
+import { Button, Col, Divider, Row, Space, Table, Tag, Typography } from 'antd';
 import type {
   Key,
   SorterResult,

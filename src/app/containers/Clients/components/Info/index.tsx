@@ -1,6 +1,5 @@
 import { DeleteOutlined, EditOutlined, UserOutlined } from '@ant-design/icons';
 import {
-  Avatar,
   Button,
   Descriptions,
   Divider,
@@ -12,10 +11,8 @@ import {
   Typography,
 } from 'antd';
 import { selectLoggedInUser } from 'auth/slice';
-import { translations } from 'locales/i18n';
 import React, { useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectRouter } from 'settings/slice';

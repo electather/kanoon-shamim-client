@@ -20,7 +20,7 @@ export const createClient = () => {
     err => {
       if (err.response) {
         message.error({
-          content: localizeErrorMsg(err.response.data.error),
+          content: 'خطا',
           duration: 7,
         });
       } else if (err.request) {

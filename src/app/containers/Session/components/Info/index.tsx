@@ -36,7 +36,7 @@ export function SessionInfo() {
   const [{ data: selectedSession, isLoading, isError }] = useDataApi<
     SessionResponse
   >(`sessions/${id}`, undefined, {
-    fields: ['vehicle', 'creator'],
+    fields: ['client', 'doctor'],
   });
   const user = useSelector(selectLoggedInUser);
 
@@ -79,33 +79,43 @@ export function SessionInfo() {
           <Typography.Title level={4}>جزئیات جلسه</Typography.Title>
         </Col>
         <Col span={24} sm={16} style={{ textAlign: 'left', width: '100%' }}>
-          <Button
-            type="primary"
-            shape="round"
-            icon={<EditOutlined />}
-            disabled={!editable}
-            onClick={() => history.push(`/dashboard/tpi/edit/${id}`)}
-            style={{ margin: '0 10px' }}
-          >
-            ویرایش
-          </Button>
-          <Popconfirm
-            placement="bottomLeft"
-            title="آیا مطمئن هستید؟ این عمل غیر قابل بازگشت می باشد."
-            onConfirm={() => deleteRequest(id)}
-            okText="بله"
-            cancelText="خیر"
-          >
-            <Button
-              type="primary"
-              danger
-              shape="round"
-              icon={<DeleteOutlined />}
-              disabled={!editable}
+          <Button.Group>
+            {user?.role !== 'SECRETARY' && (
+              <Button
+                type="primary"
+                icon={<EditOutlined />}
+                disabled={!editable}
+                onClick={() => history.push(`/dashboard/sessions/doctor/${id}`)}
+              >
+                شروع جلسه
+              </Button>
+            )}
+            {user?.role !== 'DOCTOR' && (
+              <Button
+                icon={<EditOutlined />}
+                disabled={!editable}
+                onClick={() => history.push(`/dashboard/sessions/edit/${id}`)}
+              >
+                ویرایش
+              </Button>
+            )}
+            <Popconfirm
+              placement="bottomLeft"
+              title="آیا مطمئن هستید؟ این عمل غیر قابل بازگشت می باشد."
+              onConfirm={() => deleteRequest(id)}
+              okText="بله"
+              cancelText="خیر"
             >
-              حذف از سیستم
-            </Button>
-          </Popconfirm>
+              <Button
+                type="primary"
+                danger
+                icon={<DeleteOutlined />}
+                disabled={!editable}
+              >
+                حذف از سیستم
+              </Button>
+            </Popconfirm>
+          </Button.Group>
         </Col>
       </Row>
       <Divider />

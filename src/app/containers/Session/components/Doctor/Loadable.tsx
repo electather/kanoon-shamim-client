@@ -4,7 +4,7 @@
 
 import { lazyLoad } from 'utils/loadable';
 
-export const NewSessionRequestPage = lazyLoad(
+export const SessionDetailsPage = lazyLoad(
   () => import('./index'),
-  module => module.NewSessionRequest,
+  module => module.SessionDetails,
 );

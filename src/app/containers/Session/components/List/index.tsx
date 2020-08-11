@@ -12,7 +12,7 @@ import { CalendarMode } from 'antd/lib/calendar/generateCalendar';
 import Calendar from 'app/components/uiElements/Calendar';
 import { selectLoggedInUser } from 'auth/slice';
 import dayjs, { Dayjs } from 'dayjs';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -22,6 +22,13 @@ import { useDataApi } from 'utils/hooks/useDataApi';
 
 export function SessionList() {
   const loggedInUser = useSelector(selectLoggedInUser);
+  const thisMonth = useMemo<[dayjs.Dayjs, dayjs.Dayjs]>(
+    () => [
+      dayjs(dayjs().calendar('jalali').startOf('month')),
+      dayjs(dayjs().calendar('jalali').endOf('month')),
+    ],
+    [],
+  );
   const [drawerVisible, setDrawerVisible] = useState<dayjs.Dayjs | undefined>(
     undefined,
   );
@@ -39,6 +46,7 @@ export function SessionList() {
       page: 1,
       take: 10,
       order: 'DESC',
+      fields: ['client', 'doctor'],
     },
   );
 
@@ -56,29 +64,10 @@ export function SessionList() {
       page: 1,
       take: 10,
       order: 'DESC',
-      startDateMin: dayjs(dayjs().calendar('jalali').startOf('month'))
-        .calendar('gregory')
-        .format('YYYY-MM-DD'),
-      startDateMax: dayjs().calendar('gregory').format('YYYY-MM-DD'),
+      startDateMin: thisMonth[0].calendar('gregory').format('YYYY-MM-DD'),
+      startDateMax: thisMonth[1].calendar('gregory').format('YYYY-MM-DD'),
+      fields: ['client', 'doctor'],
     },
-  );
-
-  const handlePanelChange = useCallback(
-    (date: Dayjs, mode: CalendarMode) => {
-      setQuery({
-        page: 1,
-        take: 100,
-        startDateMin: date
-          .startOf(mode)
-          .calendar('gregory')
-          .format('YYYY-MM-DD'),
-        startDateMax: date
-          .startOf(mode)
-          .calendar('gregory')
-          .format('YYYY-MM-DD'),
-      });
-    },
-    [setQuery],
   );
 
   const dateCellRender = useCallback(
@@ -89,17 +78,17 @@ export function SessionList() {
       return sessionList ? (
         <ul className="sessions">
           {sessionList.map(item => {
-            const startDate = dayjs(item.startDate);
+            const startDate = dayjs(item?.startDate);
             const status = startDate.isBefore(date, 'minute')
               ? 'default'
-              : item.sessionStatus === 'done'
+              : item?.sessionStatus === 'done'
               ? 'success'
               : 'error';
             const text = `${startDate.format('HH:mm')} : ${
-              item.client.lastName
-            } - ${item.doctor.lastName}`;
+              item?.client?.lastName
+            } - ${item.doctor?.lastName}`;
             return (
-              <li key={item.id}>
+              <li key={item?.id}>
                 <Badge status={status} text={text} />
               </li>
             );
@@ -123,6 +112,7 @@ export function SessionList() {
           .format('YYYY-MM-DD'),
         startDateMax: date
           .calendar('gregory')
+          .add(1, 'day')
           .endOf('day')
           .format('YYYY-MM-DD'),
       });
@@ -132,7 +122,7 @@ export function SessionList() {
 
   return (
     <React.Fragment>
-      <Helmet title="لیست جلسات" />
+      <Helmet title="لیست جلسات این ماه" />
       <Row>
         <Col span={24} sm={18}>
           <Typography.Title level={4}>لیست جلسات</Typography.Title>
@@ -155,7 +145,7 @@ export function SessionList() {
       <Divider />
       <Calendar
         fullscreen
-        onPanelChange={handlePanelChange}
+        validRange={thisMonth}
         dateCellRender={dateCellRender}
         onSelect={onDateSelect}
       />
@@ -175,13 +165,13 @@ export function SessionList() {
             <List.Item
               key={id}
               actions={[
-                <Link key="href" to={`/dashboard/appointments/${id}`}>
+                <Link key="href" to={`/dashboard/sessions/info/${id}`}>
                   نمایش جزئیات
                 </Link>,
               ]}
             >
-              {formatDate(startDate, 'HH:mm')}: {client.firstName}{' '}
-              {client.lastName} - دکتر {doctor.lastName}
+              {formatDate(startDate, 'HH:mm')}: {client?.firstName}{' '}
+              {client?.lastName} - دکتر {doctor?.lastName}
             </List.Item>
           )}
         />

@@ -45,6 +45,7 @@ export function ClientsList() {
         take: pagination.pageSize || 10,
         order: (sorter as any)?.order === 'ascend' ? 'ASC' : 'DESC',
         phone: filters.phone?.[0].toString(),
+        melliCode: filters.melliCode?.[0].toString(),
       });
     },
     [setQuery],
@@ -100,6 +101,7 @@ export function ClientsList() {
             </span>
           )}
         />
+        <Table.Column title="کد ملی" dataIndex="melliCode" {...searchProps} />
         <Table.Column
           title="شماره تماس"
           dataIndex="phone"

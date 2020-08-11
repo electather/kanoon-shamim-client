@@ -34,5 +34,9 @@ export const IranYekanFontLoader = createGlobalStyle`
   html a {
     font-family: 'iranyekan';
   }
+  .ant-list:not(.ant-list-vertical) .ant-list-item-no-flex .ant-list-item-action{
+    float: left;
+
+  }
   }
 `;

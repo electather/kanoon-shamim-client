@@ -6,8 +6,10 @@ import { createClient } from 'utils/axios';
 const client = createClient();
 
 export const createSession = async (dto: SessionResponse) => {
-  const { data } = await client.post<SessionResponse>('sessions', dto);
-  return data;
+  try {
+    const { data } = await client.post<SessionResponse>('sessions', dto);
+    return data;
+  } catch {}
 };
 
 export const updateSession = async (

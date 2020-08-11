@@ -98,36 +98,36 @@
       }
     },
     "users": {
-      "title": "Users",
+      "title": "کاربران",
       "overViewTab": {
         "title": "OverView",
         "total": "registered users",
         "past30Days": "registered users in the past 30 days"
       },
       "dataTab": {
-        "title": "Registered Users",
+        "title": "کاربران",
         "table": {
           "headers": {
             "avatar": "avatar",
-            "fullName": "full name",
+            "fullName": "نام کامل",
             "role": "role",
             "melliCode": "Melli code",
-            "actions": "actions"
+            "actions": "عملیات ها"
           },
           "general": {
-            "found": "{items, plural, =0 {nothing found, please check search criteria} =1 {found ONE Item} other {found # users in total.}}"
+            "found": "{items, plural, =0 {چیزی یافت نشد} =1 {یک کاربر یافت شد} other {در کل # کاربر پیدا شد}}"
           }
         },
         "findOne": {
-          "title": "user details",
+          "title": "اطلاعات کاربر",
           "elements": {
-            "firstName": "first name",
-            "lastName": "last name",
-            "role": "role",
-            "phone": "phone number",
-            "avatar": "avatar",
-            "melliCode": "Melli code",
-            "address": "address",
+            "firstName": "نام",
+            "lastName": "نام خانوادگی",
+            "role": "نقش",
+            "phone": "شماره تلفن",
+            "avatar": "تصویر",
+            "melliCode": "کد ملی",
+            "address": "آدرس",
             "melliCardScanFront": "melli card scan front",
             "melliCardScanBack": "melli card scan back",
             "payrollScan": "payroll scan"

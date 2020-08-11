@@ -29,7 +29,7 @@ import { history } from 'utils/history';
 
 import { createSession, fetchSession, updateSession } from '../../rest';
 
-export function NewSessionRequest() {
+export function SessionDetails() {
   let { id } = useParams<{ id: string }>();
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
@@ -236,17 +236,25 @@ export function NewSessionRequest() {
           </Form>
         </Tabs.TabPane>
         <Tabs.TabPane tab="استفاده از دفتر" key="2">
-          <Button onClick={handle.enter}>تمام صفحه کردن</Button>
+          <Button onClick={handle.enter}>ورود به حالت یادداشت</Button>
           <FullScreen handle={handle}>
-            <CanvasDraw />
+            {handle.active && (
+              <>
+                <CanvasDraw
+                  canvasHeight={1000}
+                  canvasWidth={700}
+                  brushRadius={4}
+                />
+                <Button
+                  type="primary"
+                  loading={loading}
+                  icon={<CheckCircleOutlined />}
+                >
+                  ثبت جلسه
+                </Button>
+              </>
+            )}
           </FullScreen>
-          <Button
-            type="primary"
-            loading={loading}
-            icon={<CheckCircleOutlined />}
-          >
-            ثبت جلسه
-          </Button>
         </Tabs.TabPane>
       </Tabs>
     </React.Fragment>

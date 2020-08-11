@@ -17,12 +17,13 @@ import { ErrorResponse } from 'userResponse';
 import { localizeErrorMsg, statusCodeToResultStatus } from 'utils';
 import { formItemLayout } from 'utils/const';
 import { history } from 'utils/history';
+import { melliCodeValidator } from 'utils/validation';
 
 import { createClients, fetchClient, updateClient } from '../../rest';
 
 export function NewClientRequest() {
   let { id } = useParams<{ id: string }>();
-  const title = id ? 'ویرایش کاربر' : 'ثبت کاربر جدید';
+  const title = id ? 'ویرایش مشتری' : 'ثبت مشتری جدید';
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<ErrorResponse | undefined>(undefined);
@@ -113,7 +114,7 @@ export function NewClientRequest() {
       <Result
         status="success"
         title="ثبت موفقیت آمیر"
-        subTitle="کاربر با موفقیت در سیستم ثبت(بروز رسانی) شد. هم اکنون می توانید ادامه مراحل ثبت خودرو و بیمه را انجام دهید."
+        subTitle="مشتری با موفقیت در سیستم ثبت(بروز رسانی) شد. هم اکنون می توانید ادامه مراحل ثبت خودرو و بیمه را انجام دهید."
         extra={[
           id ? (
             <Button
@@ -121,18 +122,18 @@ export function NewClientRequest() {
               key="new"
               onClick={() => history.push(`/dashboard/clients/info/${id}`)}
             >
-              بازگشت به پروفایل کاربر
+              بازگشت به پروفایل مشتری
             </Button>
           ) : (
             <Button type="primary" key="new" onClick={() => setSuccess(false)}>
-              ثبت کاربر جدید
+              ثبت مشتری جدید
             </Button>
           ),
           <Button
             key="list"
             onClick={() => history.push('/dashboard/clients/list')}
           >
-            بازگشت به لیست کاربران
+            بازگشت به لیست مشتری ها
           </Button>,
         ]}
       />
@@ -188,26 +189,24 @@ export function NewClientRequest() {
             </Form.Item>
           </Input.Group>
         </Form.Item>
-        {/* <Form.Item
+        <Form.Item
           name="melliCode"
-          label={t(ClientsTranslations.melliCode.label())}
+          label="کد ملی"
           rules={[
             {
               required: true,
-              message: t(ClientsTranslations.melliCode.emptyError()),
+              message: 'وارد کردن کد ملی اجباری است',
             },
             {
               validator: (_, value) =>
                 melliCodeValidator(value)
                   ? Promise.resolve()
-                  : Promise.reject(
-                      t(ClientsTranslations.melliCode.invalidError()),
-                    ),
+                  : Promise.reject('کد ملی وارد شده معتبر نیست'),
             },
           ]}
         >
-          <Input disabled={!!id} maxLength={10} />
-        </Form.Item> */}
+          <Input addonAfter="+98" maxLength={10} />
+        </Form.Item>
         <Form.Item
           name="phone"
           label="موبایل"
@@ -224,21 +223,11 @@ export function NewClientRequest() {
         >
           <Input addonAfter="+98" maxLength={10} />
         </Form.Item>
-        <Form.Item
-          name="role"
-          label="سطح دسترسی"
-          rules={[
-            {
-              required: true,
-              message: 'وارد کردن شماره موبایل اجباری است',
-            },
-          ]}
-        >
-          <Select>
-            <Select.Option value="SECRETARY">منشی</Select.Option>
-            <Select.Option value="DOCTOR">دکتر</Select.Option>
-            <Select.Option value="ADMIN">مدیر</Select.Option>
-          </Select>
+        <Form.Item name="address" label="آدرس">
+          <Input.TextArea />
+        </Form.Item>
+        <Form.Item name="notes" label="یادداشت ها">
+          <Input.TextArea />
         </Form.Item>
         <Form.Item wrapperCol={{ offset: 4 }}>
           <Button.Group>

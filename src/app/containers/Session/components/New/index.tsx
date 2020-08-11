@@ -80,8 +80,8 @@ export function NewSessionRequest() {
             },
           });
           form.setFieldsValue({
-            client: data?.clientId,
-            doctor: data?.doctorId,
+            clientId: data?.clientId,
+            doctorId: data?.doctorId,
             startDate: dayjs(data?.startDate),
             endDate: dayjs(data?.endDate),
             amount: data?.amount,
@@ -104,26 +104,16 @@ export function NewSessionRequest() {
 
   const onFinish = useCallback(
     async values => {
-      const { attachment, insurer, vehicle, isCash, ...rest } = values;
-
-      const payload = {
-        ...rest,
-        attachmentId: getUploadedFileID(attachment),
-        insurerId: insurer,
-        vehicleId: vehicle,
-        isCash: isCash === 'Cash',
-      };
-
       setLoading(true);
       try {
         if (id) {
-          const updated = await updateSession(id, payload);
+          const updated = await updateSession(id, values);
           if (updated) {
             message.success('با موفقیت بروز رسانی شد!');
             setSuccess(true);
           }
         } else {
-          const created = await createSession(payload);
+          const created = await createSession(values);
           if (created) {
             message.success('بیمه با موفقیت ثبت شد!');
             setSuccess(true);
@@ -217,7 +207,7 @@ export function NewSessionRequest() {
         form={form}
       >
         <Form.Item
-          name="client"
+          name="clientId"
           label="درمان شونده"
           rules={[
             {
@@ -250,7 +240,7 @@ export function NewSessionRequest() {
           </Select>
         </Form.Item>
         <Form.Item
-          name="doctor"
+          name="doctorId"
           label="درمانگر"
           rules={[
             {
@@ -289,8 +279,10 @@ export function NewSessionRequest() {
             disabledDate={disabledDate}
             onChange={onStartDateChange}
             showToday
+            showTime
             showHour
             showMinute
+            showSecond={false}
           />
         </Form.Item>
         <Form.Item
@@ -305,8 +297,10 @@ export function NewSessionRequest() {
         >
           <DatePicker
             disabledDate={disabledDate}
+            showTime
             showHour
             showMinute
+            showSecond={false}
             showToday={false}
           />
         </Form.Item>
